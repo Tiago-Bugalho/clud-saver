@@ -38,7 +38,7 @@ function saveUsers(users){
   fs.writeFileSync(path.join(__dirname,'users.json'), JSON.stringify(users,null,2));
 }
 
-// ===== ROTAS =====
+// ===== ROTAS BACKEND =====
 
 // Registrar usuário
 app.post('/register', (req,res)=>{
@@ -93,5 +93,13 @@ app.get('/download/:username/:filename', (req,res)=>{
   }
 });
 
-// Iniciar servidor
+// ===== SERVIR FRONTEND =====
+app.use(express.static(path.join(__dirname)));
+
+// Rota fallback: qualquer rota desconhecida retorna index.html
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+// ===== INICIAR SERVIDOR =====
 app.listen(PORT,()=>console.log(`Servidor rodando na porta ${PORT}`));

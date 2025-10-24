@@ -1,5 +1,5 @@
 // Base URL do backend Render ou localhost
-const BASE_URL = 'http://localhost:10000'; // se estiver online, colocar URL do Render
+const BASE_URL = 'https://cloud-saver-x4a2.onrender.com'; // se estiver online, colocar URL do Render
 
 let currentUser = '';
 const message = document.getElementById('message');
